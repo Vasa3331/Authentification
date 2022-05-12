@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:sec="http://www.thymeleaf.org/themeleaf-extras-springsequrity5">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Страница доступна пользователям с административной ролью</h1>
+<ul>
+    <li><a href="/">главная</a></li>
+    <li sec:authorize="isAuthenticated"><a href="/authenticated">аутентифицированные</a></li>
+    <li sec:authorize="hasRole('CLIENT')"><a href="/client">клиент</a></li>
+    <li sec:authorize="hasRole('ADMIN')"><a href="/admin">администратор</a></li>
+    <li sec:authorize="isAnonymous"><a href="/login">войти</a></li>
+    <li sec:authorize="isAuthenticated"><a href="/">выйти</a></li>
+</ul>
+</body>
+</html>
